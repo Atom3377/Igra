@@ -1,0 +1,21 @@
+package lesson3;
+
+import javax.swing.*;
+
+public class prog {
+
+	public static void main(String[] args) {
+		int i=10;
+		char a='+';
+		String str = "PRIVET";
+		/*JOptionPane.showMessageDialog(null, i);
+		JOptionPane.showMessageDialog(null, a);
+		JOptionPane.showMessageDialog(null, str);*/
+		
+		JFrame nf = new JFrame();
+		nf.setBounds(100,100,200.300);
+		nf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	}
+
+}

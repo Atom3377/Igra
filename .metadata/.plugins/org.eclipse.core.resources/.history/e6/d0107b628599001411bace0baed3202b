@@ -1,0 +1,119 @@
+package nikita;
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.io.*;
+import javax.imageio.*;
+
+class pole extends JPanel
+{
+	private Image UFO;
+	private Image fon;
+	public int x = 400;
+	private int slogn;
+	private korov[] gameKorov;
+	private Image end_game;
+	public Timer timerUpdate,timerDraw;
+	
+	public pole(int slogn)
+	{
+		this.slogn = slogn;
+		try
+		{
+			UFO = ImageIO.read(new File("ñ:\\shapka.png"));
+		}
+		catch(IOException ex) {}
+		
+		try
+		{
+			fon = ImageIO.read(new File("ñ:\\fon.png"));
+		}
+			catch(IOException ex) {}		
+		
+		try
+		{
+			end_game = ImageIO.read(new File("ñ:\\end_game.png"));
+		}
+			catch(IOException ex) {}
+		
+		gameKorov = new korov[7];
+		for (int i=0;i<7;i++)
+		{
+			try
+			{
+				gameKorov[i] = new korov(ImageIO.read(new File("ñ:\\p"+i+".png")));
+			}
+			catch (IOException ex) {}
+			}
+		
+	 timerUpdate = new Timer(3000, new ActionListener(){
+		 public void actionPerformed(ActionEvent e) {
+			 updateStart();
+			 
+		 }
+	 
+	 });
+	 timerUpdate.start();
+	 timerDraw = new Timer(50,new ActionListener(){
+		 public void actionPerformed(ActionEvent e) {
+			 repaint();
+			 
+		 }
+
+		
+	 });
+	 timerDraw.start();
+	 
+		}
+	public void paintComponent(Graphics gr)
+	{
+		super.paintComponent(gr);
+		gr.drawImage(fon, 0, 0, null);
+		gr.drawImage(UFO, x, 465, null);
+		for(int i=0;i<7;i++)
+		{
+			gameKorov[i].draw(gr);
+			if (gameKorov[i].act==true)
+			{
+				if((gameKorov[i].y+gameKorov[i].img.getHeight(null))>=470)
+				{
+				if(Math.abs(gameKorov[i].x - x) > 75)
+				{
+					
+					gr.drawImage(end_game, 300, 300, null);
+					timerDraw.stop();
+					timerUpdate.stop();
+					break;
+				}
+				else gameKorov[i].act=false;
+				}
+			}
+		}
+	}
+
+
+private void updateStart()
+{
+	int kol=0;
+	for (int i=0;i<7;i++)
+	{
+		if(kol<slogn)
+		{
+			gameKorov[i].start();
+			break;
+		}
+		else kol++;
+	}
+	
+}
+
+}
+
+
+
+
+	
+
+	
+
+

@@ -1,0 +1,13 @@
+package less2;
+import javax.swing.*;
+
+public class prog {
+
+	public static void main(String[] args) {
+		//TODO Автоматически созданная заглушка метода
+		System.out.println("Helllo");
+		//System.out.println("Helllo knrefejqkbvweijbvij");
+		JOptionPane.showMessageDialog(null,"ДОБРО ПОЖАЛОВАТЬ НА JAVA");
+	}
+
+}

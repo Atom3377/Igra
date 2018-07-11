@@ -1,0 +1,17 @@
+package lesson3;
+
+import javax.swing.JOptionPane;
+
+public class prog {
+
+	public static void main(String[] args) {
+		int i=10;
+		char a='+';
+		String str = "PRIVET";
+		JOptionPane.showMessageDialog(null, i);
+		JOptionPane.showMessageDialog(null, a);
+		JOptionPane.showMessageDialog(null, str);
+
+	}
+
+}

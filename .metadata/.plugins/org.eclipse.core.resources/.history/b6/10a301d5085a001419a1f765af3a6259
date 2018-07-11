@@ -1,0 +1,23 @@
+package less2;
+import javax.swing.*;
+import java.util.Scanner;
+
+public class prog {
+
+	public static void main(String[] args) {
+		
+		
+		
+		Scanner scan = new Scanner(System.in);
+		Scanner scan1 = new Scanner(System.in);
+		
+		int v1 = scan.nextInt();
+		int v2 = scan1.nextInt();
+		int v3;
+		
+	v3= v1/v2;
+	JOptionPane.showMessageDialog(null,v3);
+	
+	}
+
+}

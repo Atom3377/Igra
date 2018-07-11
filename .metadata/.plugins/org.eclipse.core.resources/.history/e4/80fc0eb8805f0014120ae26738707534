@@ -1,0 +1,12 @@
+package lesson3;
+
+public class prog {
+
+	public static void main(String[] args) {
+		int i=10;
+		char a='+';
+		String = "jhkadbgflhkj";
+
+	}
+
+}

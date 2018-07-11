@@ -1,0 +1,41 @@
+package lesson24;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class panel extends JPanel 
+{
+
+	private int val=0;
+	
+	public panel() 
+	{
+		
+			//Режим произвольного размещения элементов на панели	
+		setLayout(null);
+		Timer tm = new Timer(200, new ActionListener(){
+		public void actionPerformed(ActionEvent arg0) {
+			//увеличиваем переменную на единицу
+		val++;
+			//если значение достигает 256 - обнуляем его
+		if(val==256) val=0;
+			//перерисовка
+		repaint();
+		}});
+			//таймер
+		tm.start();
+	}
+			//метод отрисовки панели
+	public void paintComponent(gr)
+	{
+			//перерисовка и очищение панели
+		super.paintComponent(gr);
+			//цикл для отрисовки магического квадрата
+		for (int i=0;i<=255;i++)
+		{
+			gr.setColor(new Color(0,(i*val)%255,0));
+			gr.drawRect(250-i/2, 220-i/2, i, i);
+		}
+	}
+}
