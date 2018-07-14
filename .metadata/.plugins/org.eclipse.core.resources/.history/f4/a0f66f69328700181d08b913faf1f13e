@@ -83,7 +83,7 @@ class pole extends JPanel {
 			{
 				if((gameMyach[i].y+gameMyach[i].img.getHeight(null))>=470)
 				{
-					if(Math.abs(gameMyach[i].x-x)>75)
+					if(Math.abs(gamePodar[i].x-x)>75)
 					{
 						gr.drawImage(end_game,300,300,null);
 						timerDraw.stop();
